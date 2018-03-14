@@ -15,7 +15,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        myRequest()
+//        myRequest()
+        localHTMLRequest()
     }
     
     func myRequest() {
@@ -23,10 +24,19 @@ class ViewController: UIViewController {
         let request = URLRequest(url: url!)
         webView.load(request)
     }
+    
+    func localHTMLRequest() {
+        let htmlPath = Bundle.main.path(forResource: "sample", ofType: "html")
+        let url = URL(fileURLWithPath: htmlPath!)
+        let request = URLRequest(url: url)
+        webView.load(request)
+    }
 
     override var prefersStatusBarHidden: Bool {
-        return true
+        return false
     }
 
 }
+
+
 
