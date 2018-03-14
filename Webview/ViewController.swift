@@ -16,7 +16,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        myRequest()
-        localHTMLRequest()
+//        localHTMLRequest()
+        localPDFRequest()
     }
     
     func myRequest() {
@@ -31,9 +32,12 @@ class ViewController: UIViewController {
         let request = URLRequest(url: url)
         webView.load(request)
     }
-
-    override var prefersStatusBarHidden: Bool {
-        return false
+    
+    func localPDFRequest() {
+        let pdfPath = Bundle.main.path(forResource: "bus", ofType: "pdf")
+        let url = URL(fileURLWithPath: pdfPath!)
+        let request = URLRequest(url: url)
+        webView.load(request)
     }
 
 }
